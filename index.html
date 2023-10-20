@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="todo">
+        <div class="container">
+            <h1 class="todo__title">What's up, <span class="userName editable">Sardana</span></h1>
+            <h2 class="todo__subtitle">CREATE A TODO</h2>
+            <p class="todo__text">Whats's on your todo list?</p>
+            <input class="todo__input" type="text" placeholder="e.g. get a milk">
+            <p class="todo__text error"></p>
+            <p class="todo__text">Pick a category</p>
+            <div class="checkbox__wrapper">
+                <div class="checkbox__business">
+                    <!-- <input type="radio" name="rb" id="rb1" checked> <label for="rb1">Business</label> -->
+                    <input type="radio" class="radio" name="radio" id="radio1" />
+                    <label for="radio1">Business</label>
+                </div>
+                <div class="checkbox__personal">
+                    <!-- <input type="radio" name="rb" id="rb2" checked> <label for="rb2">Personal</label> -->
+                    <input type="radio" class="radio" name="radio" id="radio2" />
+                    <label for="radio2">Personal</label>
+                </div>
+            </div>
+            <button class="btn-add">Add todo</button>
+            <p class="todo__text">TODO LIST</p>
+            <div class="todo__list">
+                <!-- <div class="todo__item-box">
+                    <div class="todo__item-wrapper">
+                        <input type="radio" class="radio" name="radio" id="radio3"/>
+                        <label for="radio3"></label>
+                        <p class="todo__item-text">Tasks 1,2</p>
+                    </div>
+                    <div class="btn__wrapper">
+                        <button class="btn-edit">Edit</button>
+                        <button class="btn-delete">Delete</button>
+                    </div>
+                </div>
+                <div class="todo__item-box">
+                    <div class="todo__item-wrapper">
+                        <input type="radio" class="radio" name="radio" id="radio3"/>
+                        <label for="radio3"></label>
+                        <p class="todo__item-text">Tasks 1,2</p>
+                    </div>
+                    <div class="btn__wrapper">
+                        <button class="btn-edit">Edit</button>
+                        <button class="btn-delete">Delete</button>
+                    </div>
+                </div>
+                <div class="todo__item-box">
+                    <div class="todo__item-wrapper">
+                        <input type="radio" class="radio" name="radio" id="radio3"/>
+                        <label for="radio3"></label>
+                        <p class="todo__item-text">Tasks 1,2</p>
+                    </div>
+                    <div class="btn__wrapper">
+                        <button class="btn-edit">Edit</button>
+                        <button class="btn-delete">Delete</button>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>

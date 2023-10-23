@@ -19,7 +19,7 @@ p{
 }
 .todo__input{
     border: none;
-    /* padding-left: 15px; */
+    padding-left: 10px;
 }
 .todo__text{
     margin-top: 20px;
@@ -36,6 +36,7 @@ p{
 }
 .category__wrapper{
     display: flex;
+    gap: 10px;
 }
 
 .todo__title, .todo__subtitle{
@@ -47,9 +48,9 @@ p{
     border-radius: 10px;
     background: #FFF;
 }
-.input__wrapper{
+/* .input__wrapper{
     max-width: 605px;
-}
+} */
 .btn-wrapper{
     max-width: 623px;
 
@@ -140,12 +141,10 @@ p{
     display: flex;
     flex-direction: column;
     align-items:center;
-    /* justify-content: center; */
     padding: 10px;
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: var(#111);
-    height: 50px;
+    height: 70px;
     width: 250px;
 }
 .category__wrapper{

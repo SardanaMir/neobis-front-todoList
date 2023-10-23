@@ -114,19 +114,21 @@ document.addEventListener("DOMContentLoaded", () => {
             })
         }
     }
+    
+    function done(){
+        const checkbox = document.querySelectorAll('.todo-item input[type="checkbox"]');
+        const taskCollection = document.querySelectorAll('.todo__item-text');
+        
+        for (let i = 0; i < checkbox.length; i++){
+            checkbox[i].addEventListener('click', ()=>{
+                if (checkbox[i].checked){
+                    taskCollection[i].classList.add('done')
+                }else{
+                    taskCollection[i].classList.remove('done');
+                }
+            }
+        )}
+    }
 })
 
-function done(){
-    const checkbox = document.querySelectorAll('.todo-item input[type="checkbox"]');
-    const taskCollection = document.querySelectorAll('.todo__item-text');
-    
-    for (let i = 0; i < checkbox.length; i++){
-        checkbox[i].addEventListener('click', ()=>{
-            if (checkbox[i].checked){
-                taskCollection[i].classList.add('done')
-            }else{
-                taskCollection[i].classList.remove('done');
-            }
-        }
-    )}
-}
+

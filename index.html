@@ -13,59 +13,60 @@
     <section class="todo">
         <div class="container">
             <h1 class="todo__title">What's up, <span class="userName editable">Sardana</span></h1>
-            <h2 class="todo__subtitle">CREATE A TODO</h2>
+            <h4 class="todo__subtitle">CREATE A TODO</h4>
             <p class="todo__text">Whats's on your todo list?</p>
-            <input class="todo__input" type="text" placeholder="e.g. get a milk">
+            <div class="input__wrapper">
+                <input class="todo__input" type="text" placeholder="e.g. get a milk">
+            </div>
             <p class="todo__text error"></p>
             <p class="todo__text">Pick a category</p>
-            <div class="checkbox__wrapper">
-                <div class="checkbox__business">
-                    <!-- <input type="radio" name="rb" id="rb1" checked> <label for="rb1">Business</label> -->
-                    <input type="radio" class="radio" name="radio" id="radio1" />
-                    <label for="radio1">Business</label>
+            <form class="category">
+                <div class="category__wrapper">
+                    <label>
+                        <input type="radio" name="category" id="category1" value="business">
+                        <span class="bubble business"></span>
+                        <div>business</div>
+                    </label>
+                    <label>
+                        <input type="radio" name="category" id="category2" value="personal">
+                        <span class="bubble personal"></span>
+                        <div>personal</div>
+                    </label>
                 </div>
-                <div class="checkbox__personal">
-                    <!-- <input type="radio" name="rb" id="rb2" checked> <label for="rb2">Personal</label> -->
-                    <input type="radio" class="radio" name="radio" id="radio2" />
-                    <label for="radio2">Personal</label>
-                </div>
+            </form>
+            <div class="btn-wrapper">
+                <button class="btn-add">Add todo</button>
             </div>
-            <button class="btn-add">Add todo</button>
             <p class="todo__text">TODO LIST</p>
             <div class="todo__list">
                 <!-- <div class="todo__item-box">
                     <div class="todo__item-wrapper">
-                        <input type="radio" class="radio" name="radio" id="radio3"/>
-                        <label for="radio3"></label>
+                        <div class="">
+                            <input type="checkbox" class="checbox"/>
+                            <label></label>
+                        </div>
                         <p class="todo__item-text">Tasks 1,2</p>
                     </div>
                     <div class="btn__wrapper">
                         <button class="btn-edit">Edit</button>
                         <button class="btn-delete">Delete</button>
-                    </div>
+                    </div> -->
+                    <!-- <div class="todo__item-box">
+                        <div class="todo__item-wrapper">
+                            <div class="todo-item">
+                                <label>
+                                    <input type="checkbox"/>
+                                    <span class="bubble business"></span>
+                                </label>
+                            </div>
+                            <p class="todo__item-text">Tasks 1,2</p>
+                        </div>
+                        <div class="btn__wrapper">
+                            <button class="btn-edit">Edit</button>
+                            <button class="btn-delete">Delete</button>
+                        </div> -->
+
                 </div>
-                <div class="todo__item-box">
-                    <div class="todo__item-wrapper">
-                        <input type="radio" class="radio" name="radio" id="radio3"/>
-                        <label for="radio3"></label>
-                        <p class="todo__item-text">Tasks 1,2</p>
-                    </div>
-                    <div class="btn__wrapper">
-                        <button class="btn-edit">Edit</button>
-                        <button class="btn-delete">Delete</button>
-                    </div>
-                </div>
-                <div class="todo__item-box">
-                    <div class="todo__item-wrapper">
-                        <input type="radio" class="radio" name="radio" id="radio3"/>
-                        <label for="radio3"></label>
-                        <p class="todo__item-text">Tasks 1,2</p>
-                    </div>
-                    <div class="btn__wrapper">
-                        <button class="btn-edit">Edit</button>
-                        <button class="btn-delete">Delete</button>
-                    </div>
-                </div> -->
             </div>
         </div>
     </section>

@@ -2,39 +2,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //добавление таска, нажатие кнопки add
     const btnAdd = document.querySelector('.btn-add');
+
     btnAdd.addEventListener('click', () =>{
         const inputToDo = document.querySelector('.todo__input').value;
-        const error = document.querySelector('.error');
+        
+        // проверка инпута
         if (inputToDo.trim() === ''){
-            // error.textContent = 'please text task';
+            // если были пробелы, очищаем инпут
             cleanInput()
         } else {
-            error.textContent = '';  
+            //создание таск блока в todo list
             createNewToDoTask()
+            //очищение инпута
+            cleanInput()
         }
     })
 
-    //очищение инпута
+    //функция очищения инпута
     function cleanInput(){
         document.querySelector('.todo__input').value = '';
     }
 
-    //создание блока с таском и добавление в лист
+    //создание блока с таском
     function createNewToDoTask(){
-        const parentElement = document.querySelector('.todo__list')
+        const toDoList = document.querySelector('.todo__list')
         const inputToDo = document.querySelector('.todo__input').value;
-    
-        const newElement = document.createElement('div');
-        newElement.classList.add('todo__item-box');
-        parentElement.append(newElement);
-    
+        //создание таск блока
+        const taskBlock = document.createElement('div');
+        taskBlock.classList.add('todo__item-box');
+        toDoList.append(taskBlock);
+
+        //создание обертки в блоке
         const newItemWrapper = document.createElement('div');
         newItemWrapper.classList.add('todo__item-wrapper');
-        newElement.append(newItemWrapper);
-    
-        //очищение инпута
-        cleanInput()
-    
+        taskBlock.append(newItemWrapper);
+        
+        //создание checkbox
         const todoItemDiv = document.createElement('div');
         todoItemDiv.className = 'todo-item';
         const label = document.createElement('label');
@@ -42,48 +45,51 @@ document.addEventListener("DOMContentLoaded", () => {
         checkbox.type = 'checkbox';
         const span = document.createElement('span');
         span.className = 'bubble';
+        //выбор категории
         if (document.getElementById('category2').checked){
             span.classList.add('personal');
         }else{
             span.classList.add('business');
         }
-
-        // Собираем структуру
-        label.appendChild(checkbox);
-        label.appendChild(span);
-
-        todoItemDiv.appendChild(label);
+        // Собираем структуру checkbox
+        label.append(checkbox);
+        label.append(span);
+        todoItemDiv.append(label);
         newItemWrapper.append(todoItemDiv)
 
+        //создание строки и добавление таска из инпута
+        const taskText = document.createElement('p');
+        taskText.classList.add('todo__item-text');
+        taskText.classList.add('editable');
+        taskText.textContent = inputToDo;
+        newItemWrapper.append(taskText)
 
-        const p = document.createElement('p');
-        p.classList.add('todo__item-text');
-        p.classList.add('editable');
-        p.textContent = inputToDo;
-        newItemWrapper.append(p)
-
-
+        //создание обертки для кнопок 
         const newBtnWrapper = document.createElement('div');
         newBtnWrapper.classList.add('btn__wrapper');
-        newElement.append(newBtnWrapper);
-    
+        taskBlock.append(newBtnWrapper);
+        
+        //создание кнопки редактирования
         const newBtnEdit = document.createElement('button');
         newBtnEdit.classList.add('btn-edit');
         newBtnEdit.textContent = 'Edit'
         newBtnWrapper.append(newBtnEdit);
-    
+        
+        // создание кнопки удаления
         const newBtnDelete = document.createElement('button');
         newBtnDelete.classList.add('btn-delete');
         newBtnDelete.textContent = 'Delete'
         newBtnWrapper.append(newBtnDelete);
-        
+
         //удаление таска из таск лист
         deleteBtnPush();
         //редактирование таска
         editBtnPush();
+        //отметить таск выполненным
         done()
     }
     
+
     //удаление таска из таск лист
     function deleteBtnPush(){
         const btnDelete = document.querySelectorAll('.btn-delete');
@@ -91,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
             btnDelete[i].addEventListener('click', deleteToDoTask)
         }
     }
-
+    //удаление таска из todo list
     function deleteToDoTask(){
         document.querySelector('.todo__item-box').remove()
     }
@@ -114,11 +120,10 @@ document.addEventListener("DOMContentLoaded", () => {
             })
         }
     }
-    
+    //отметить таск выполненным
     function done(){
         const checkbox = document.querySelectorAll('.todo-item input[type="checkbox"]');
         const taskCollection = document.querySelectorAll('.todo__item-text');
-        
         for (let i = 0; i < checkbox.length; i++){
             checkbox[i].addEventListener('click', ()=>{
                 if (checkbox[i].checked){

@@ -2,10 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //добавление таска, нажатие кнопки add
     const btnAdd = document.querySelector('.btn-add');
-
-    btnAdd.addEventListener('click', () =>{
+    function addTask(){
         const inputToDo = document.querySelector('.todo__input').value;
-        
         // проверка инпута
         if (inputToDo.trim() === ''){
             // если были пробелы, очищаем инпут
@@ -16,7 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
             //очищение инпута
             cleanInput()
         }
-    })
+    }
+    btnAdd.addEventListener('click', addTask);
 
     //функция очищения инпута
     function cleanInput(){

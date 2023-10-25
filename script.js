@@ -30,57 +30,22 @@ document.addEventListener("DOMContentLoaded", () => {
         //создание таск блока
         const taskBlock = document.createElement('div');
         taskBlock.classList.add('todo__item-box');
+        taskBlock.innerHTML = `
+        <div class="todo__item-wrapper">
+            <div class="todo-item">
+                <label>
+                    <input type="checkbox"><span class="bubble ${categoryChoice()}"></span>
+                </label>
+            </div>
+            <p class="todo__item-text editable">${inputToDo}</p>
+        </div>
+        <div class="btn__wrapper">
+            <button class="btn-edit">Edit</button>
+            <button class="btn-delete">Delete</button>
+        </div>`
+        
         toDoList.append(taskBlock);
-
-        //создание обертки в блоке
-        const newItemWrapper = document.createElement('div');
-        newItemWrapper.classList.add('todo__item-wrapper');
-        taskBlock.append(newItemWrapper);
-        
-        //создание checkbox
-        const todoItemDiv = document.createElement('div');
-        todoItemDiv.className = 'todo-item';
-        const label = document.createElement('label');
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        const span = document.createElement('span');
-        span.className = 'bubble';
-        //выбор категории
-        if (document.getElementById('category2').checked){
-            span.classList.add('personal');
-        }else{
-            span.classList.add('business');
-        }
-        // Собираем структуру checkbox
-        label.append(checkbox);
-        label.append(span);
-        todoItemDiv.append(label);
-        newItemWrapper.append(todoItemDiv)
-
-        //создание строки и добавление таска из инпута
-        const taskText = document.createElement('p');
-        taskText.classList.add('todo__item-text');
-        taskText.classList.add('editable');
-        taskText.textContent = inputToDo;
-        newItemWrapper.append(taskText)
-
-        //создание обертки для кнопок 
-        const newBtnWrapper = document.createElement('div');
-        newBtnWrapper.classList.add('btn__wrapper');
-        taskBlock.append(newBtnWrapper);
-        
-        //создание кнопки редактирования
-        const newBtnEdit = document.createElement('button');
-        newBtnEdit.classList.add('btn-edit');
-        newBtnEdit.textContent = 'Edit'
-        newBtnWrapper.append(newBtnEdit);
-        
-        // создание кнопки удаления
-        const newBtnDelete = document.createElement('button');
-        newBtnDelete.classList.add('btn-delete');
-        newBtnDelete.textContent = 'Delete'
-        newBtnWrapper.append(newBtnDelete);
-
+    
         //удаление таска из таск лист
         deleteBtnPush();
         //редактирование таска
@@ -88,18 +53,25 @@ document.addEventListener("DOMContentLoaded", () => {
         //отметить таск выполненным
         done()
     }
-    
 
-    //удаление таска из таск лист
+    function categoryChoice(){
+        if (document.getElementById('category2').checked){
+            return 'personal'
+        }else{
+            return 'business'
+        }
+    };
+
+
+    //удаление таска из todo лист
     function deleteBtnPush(){
         const btnDelete = document.querySelectorAll('.btn-delete');
+        const todoBlockAll = document.querySelectorAll('.todo__item-box')
         for (let i = 0; i < btnDelete.length; i++){
-            btnDelete[i].addEventListener('click', deleteToDoTask)
+            btnDelete[i].addEventListener('click', () =>{
+                todoBlockAll[i].remove()
+            })
         }
-    }
-    //удаление таска из todo list
-    function deleteToDoTask(){
-        document.querySelector('.todo__item-box').remove()
     }
 
     //редактирование имени юзера
@@ -136,4 +108,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 })
 
-
+        

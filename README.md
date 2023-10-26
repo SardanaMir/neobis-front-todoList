@@ -41,7 +41,7 @@ Well when you complete your task you can mark the task as done <br></br>
 ![2023-10-23_16-08-59](https://github.com/SardanaMir/neobis-front-todoList/assets/134269662/ea1bb73c-fb83-4177-b7e8-b0abf6351a84)
 
 
-Author: Sardana Dordzhieva <br>
+Created by Sardana Dordzhieva <br>
 E-mail: sardanadord@yandex.ru
 
 
